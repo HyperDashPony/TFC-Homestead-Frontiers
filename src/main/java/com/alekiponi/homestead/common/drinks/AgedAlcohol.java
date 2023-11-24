@@ -3,7 +3,6 @@ package com.alekiponi.homestead.common.drinks;
 import net.dries007.tfc.util.Helpers;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -77,10 +76,13 @@ public enum AgedAlcohol {
         };
     }
 
+    //TODO fix 1.20
+    /*
     @OnlyIn(Dist.CLIENT)
     public Component getTooltip() {
+
         return Helpers.literal(effect.getDisplayName().getString() + " " + (displayedPotency()) + " (" + toMinutes(effectDuration) + ")").withStyle(ChatFormatting.GRAY);
-    }
+    }*/
 
     public MobEffectInstance getEffectInstance() {
         return new MobEffectInstance(this.effect, this.effectDuration, this.effectPotency);

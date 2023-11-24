@@ -13,12 +13,14 @@ import net.minecraftforge.registries.RegistryObject;
 import java.util.Set;
 
 public class HomesteadVillagerProfessions {
-    public static DeferredRegister<VillagerProfession> PROFESSIONS =
-        DeferredRegister.create(ForgeRegistries.PROFESSIONS, Homestead.MOD_ID);
+    public static DeferredRegister<VillagerProfession> VILLAGER_PROFESSIONS =
+        DeferredRegister.create(ForgeRegistries.VILLAGER_PROFESSIONS, Homestead.MOD_ID);
 
     public static DeferredRegister<PoiType> POI_TYPES =
             DeferredRegister.create(ForgeRegistries.POI_TYPES, Homestead.MOD_ID);
 
+    //TODO fix 1.20
+    /*
     public static final RegistryObject<PoiType> PRIMITIVE_POI = POI_TYPES.register(
         "primitive_poi",
         () -> new PoiType(
@@ -30,7 +32,7 @@ public class HomesteadVillagerProfessions {
     );
 
     public static final RegistryObject <VillagerProfession> LUMBERJACK =
-        PROFESSIONS.register(
+        VILLAGER_PROFESSIONS.register(
             "lumberjack",
             () -> new VillagerProfession(
                     "lumberjack",
@@ -42,7 +44,7 @@ public class HomesteadVillagerProfessions {
         );
 
     public static final RegistryObject <VillagerProfession> DIGGER =
-            PROFESSIONS.register(
+            VILLAGER_PROFESSIONS.register(
                     "digger",
                     () -> new VillagerProfession(
                             "digger",
@@ -54,7 +56,7 @@ public class HomesteadVillagerProfessions {
             );
 
     public static final RegistryObject <VillagerProfession> MINER =
-            PROFESSIONS.register(
+            VILLAGER_PROFESSIONS.register(
                     "miner",
                     () -> new VillagerProfession(
                             "miner",
@@ -66,7 +68,7 @@ public class HomesteadVillagerProfessions {
             );
 
     public static final RegistryObject <VillagerProfession> BUILDER =
-            PROFESSIONS.register(
+            VILLAGER_PROFESSIONS.register(
                     "builder",
                     () -> new VillagerProfession(
                             "builder",
@@ -78,7 +80,7 @@ public class HomesteadVillagerProfessions {
             );
 
     public static final RegistryObject <VillagerProfession> FARMER =
-            PROFESSIONS.register(
+            VILLAGER_PROFESSIONS.register(
                     "farmer",
                     () -> new VillagerProfession(
                             "farmer",
@@ -89,4 +91,5 @@ public class HomesteadVillagerProfessions {
                     )
             );
 
+     */
 }

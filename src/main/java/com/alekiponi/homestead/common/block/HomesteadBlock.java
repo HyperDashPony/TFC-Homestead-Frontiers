@@ -46,6 +46,9 @@ public abstract class HomesteadBlock extends DeviceBlock {
         }
     }
 
+    //TODO fix 1.20
+
+    /*
     @Override
     @SuppressWarnings("deprecation")
     public @NotNull List<ItemStack> getDrops(BlockState pState, LootContext.Builder pBuilder) {
@@ -63,7 +66,7 @@ public abstract class HomesteadBlock extends DeviceBlock {
         if(entity instanceof FoodHolderBlockEntity foodHolder) {
             foodHolder.updatePreservation();
         }
-    }
+    }*/
 
 
 }

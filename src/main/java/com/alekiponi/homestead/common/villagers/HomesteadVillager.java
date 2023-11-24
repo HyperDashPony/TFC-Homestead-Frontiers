@@ -34,6 +34,8 @@ public class HomesteadVillager extends Villager {
         return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 50f).add(Attributes.MOVEMENT_SPEED, 0.3);
     }
 
+    //TODO fix 1.20
+    /*
     public static ImmutableList<Pair<Integer, ? extends Behavior<? super Villager>>> getCorePackage(VillagerProfession pProfession, float p_24587_) {
         return ImmutableList.of(
             Pair.of(0, new Swim(0.8F)),
@@ -44,8 +46,7 @@ public class HomesteadVillager extends Villager {
             Pair.of(0, new ReactToBell()),
             Pair.of(0, new SetRaidStatus()),
             Pair.of(1, new MoveToTargetSink()),
-            Pair.of(3, new LookAndFollowTradingPlayerSink(p_24587_)),
-            Pair.of(5, new GoToWantedItem(p_24587_, false, 4)));
+            Pair.of(3, new LookAndFollowTradingPlayerSink(p_24587_)));
     }
 
     public static ImmutableList<Pair<Integer, ? extends Behavior<? super Villager>>> getWorkPackage(VillagerProfession pProfession, float p_24591_) {
@@ -61,10 +62,7 @@ public class HomesteadVillager extends Villager {
             Pair.of(new HarvestFarmland(), pProfession == VillagerProfession.FARMER ? 2 : 5),
             Pair.of(new UseBonemeal(), pProfession == VillagerProfession.FARMER ? 4 : 7)))),
             Pair.of(10, new ShowTradesToPlayer(400, 1600)),
-            Pair.of(10, new SetLookAndInteract(EntityType.PLAYER, 4)),
-            Pair.of(2, new SetWalkTargetFromBlockMemory(MemoryModuleType.JOB_SITE, p_24591_, 9, 100, 1200)),
-            Pair.of(3, new GiveGiftToHero(100)),
-            Pair.of(99, new UpdateActivityFromSchedule()));
+            Pair.of(3, new GiveGiftToHero(100)));
     }
 
     public static ImmutableList<Pair<Integer, ? extends Behavior<? super Villager>>> getPlayPackage(float pWalkingSpeed) {
@@ -193,7 +191,7 @@ public class HomesteadVillager extends Villager {
 
     public void randomizeData() {
         VillagerProfession profession;
-        var list = HomesteadVillagerProfessions.PROFESSIONS.getEntries().stream().toList();
+        var list = HomesteadVillagerProfessions.VILLAGER_PROFESSIONS.getEntries().stream().toList();
         profession = list.get((int) (Math.random() * list.size())).get();
         this.setVillagerData(getVillagerData().setProfession(profession));
         this.getOffers().clear();
@@ -264,7 +262,9 @@ Pair.of(MemoryModuleType.MEETING_POINT, MemoryStatus.VALUE_PRESENT)));
         pVillagerBrain.setCoreActivities(ImmutableSet.of(Activity.CORE));
         pVillagerBrain.setDefaultActivity(Activity.IDLE);
         pVillagerBrain.setActiveActivityIfPossible(Activity.IDLE);
-        pVillagerBrain.updateActivityFromSchedule(this.level.getDayTime(), this.level.getGameTime());
+        pVillagerBrain.updateActivityFromSchedule(this.level().getDayTime(), this.level().getGameTime());
     }
+
+     */
     
 }

@@ -99,5 +99,6 @@
 
   "block.tfchomestead.jar": "Jar",
   "block.tfchomestead.full_jar": "Full Jar",
-  "tile.crate.name": "Metal Crate"
+  "tile.crate.name": "Metal Crate",
+  "creativetab.homestead_tab": "Homestead Frontiers"
 }

@@ -1,15 +1,7 @@
 package com.alekiponi.homestead.client.renderers;
 
-import com.alekiponi.homestead.common.drinks.HomesteadFluid;
-import net.minecraft.ChatFormatting;
-import net.minecraft.network.chat.TranslatableComponent;
-import net.minecraft.world.item.ItemStack;
-
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
+
 
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
@@ -17,9 +9,10 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 public class ClientEvents {
     public static void init() {
         final IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
-        MinecraftForge.EVENT_BUS.addListener(ClientEvents::addTooltipsToItem);
     }
 
+    //TODO fix 1.20
+    /*
     public static void addTooltipsToItem(ItemTooltipEvent event) {
         ItemStack stack = event.getItemStack();
         stack.getCapability(CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY).ifPresent(cap -> {
@@ -34,5 +27,5 @@ public class ClientEvents {
                 });
             }
         });
-    }
+    }*/
 }

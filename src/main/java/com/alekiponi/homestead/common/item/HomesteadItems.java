@@ -15,26 +15,11 @@ public class HomesteadItems {
     public static DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, Homestead.MOD_ID);
 
-    public static RegistryObject<Item> WALKING_CANE = ITEMS.register(
-            "walking_cane",
-            () -> new ToolItem(
-                    Tiers.WOOD,
-                    0,
-                    0,
-                    TagKey.create(Registry.BLOCK_REGISTRY, new ResourceLocation("tfchomestead", "mineable/walking_cane")),
-                    new Item.Properties().tab(HomesteadTabs.MAIN)
-            )
-    );
+    public static final RegistryObject<Item> WALKING_CANE = ITEMS.register("walking_cane",
+            () -> new Item(new Item.Properties().stacksTo(1).durability(100)));
 
-    public static RegistryObject<Item> REFINED_WALKING_CANE = ITEMS.register(
-            "refined_walking_cane",
-            () -> new ToolItem(
-                    Tiers.IRON,
-                    0,
-                    0,
-                    TagKey.create(Registry.BLOCK_REGISTRY, new ResourceLocation("tfchomestead", "mineable/walking_cane")),
-                    new Item.Properties().tab(HomesteadTabs.MAIN)
-            )
-    );
+    public static final RegistryObject<Item> REFINED_WALKING_CANE = ITEMS.register("refined_walking_cane",
+            () -> new Item(new Item.Properties().stacksTo(1).durability(400)));
+
 
 }

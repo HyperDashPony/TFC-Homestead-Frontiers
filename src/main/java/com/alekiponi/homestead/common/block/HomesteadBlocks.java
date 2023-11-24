@@ -2,21 +2,11 @@ package com.alekiponi.homestead.common.block;
 
 import com.alekiponi.homestead.Homestead;
 import com.alekiponi.homestead.common.item.HomesteadItems;
-import com.alekiponi.homestead.common.drinks.AgedAlcohol;
-import com.alekiponi.homestead.common.drinks.HomesteadFluid;
-import net.dries007.tfc.common.blocks.ExtendedProperties;
-import net.dries007.tfc.common.fluids.FlowingFluidRegistryObject;
-import net.dries007.tfc.common.items.TFCItems;
-import net.dries007.tfc.util.Helpers;
-import net.dries007.tfc.util.registry.RegistrationHelpers;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.LiquidBlock;
-import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.Material;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -30,6 +20,7 @@ public abstract class HomesteadBlocks {
     public static DeferredRegister<Block> BLOCKS =
         DeferredRegister.create(ForgeRegistries.BLOCKS, Homestead.MOD_ID);
 
+    /*
     public static final Map<AgedAlcohol, RegistryObject<LiquidBlock>> AGED_ALCOHOLS =
         Helpers.mapOfKeys(AgedAlcohol.class, (fluid) -> {
             return register("fluid/" + fluid.getId(), () -> {
@@ -40,30 +31,25 @@ public abstract class HomesteadBlocks {
             });
         });;
 
-    private static <T extends Block> RegistryObject<T> register(String name, Supplier<T> blockSupplier) {
-        return register(name, blockSupplier, (Function<T, ? extends BlockItem>) null);
-    }
-    private static <T extends Block> RegistryObject<T> register(String name, Supplier<T> blockSupplier, CreativeModeTab tab) {
-        return register(name, blockSupplier, block -> new BlockItem(block, new Item.Properties().tab(tab)));
-    }
-    private static <T extends Block> RegistryObject<T> register(String name, Supplier<T> blockSupplier, @Nullable Function<T, ? extends BlockItem> blockItemFactory) {
-        return RegistrationHelpers.registerBlock(BLOCKS, HomesteadItems.ITEMS, name, blockSupplier, blockItemFactory);
+     */
+
+    private static <T extends Block> RegistryObject<T> registerBlockWithoutItem(String name, Supplier<T> block) {
+        return BLOCKS.register(name, block);
     }
 
-    /*
-    public static final Map<Grain, RegistryObject<Block>> GRAIN_PILES = Helpers.mapOfKeys(Grain.class, grain ->
-        register("grain_pile/" + grain.name(), () -> new GrainPileBlock(grainPileProperties(), TFCItems.FOOD.get(grain.getFood())))
-    );*/
+    private static <T extends Block> RegistryObject<T> registerBlockWithItem(String name, Supplier<T> block) {
+        RegistryObject<T> blockRegistryObject = BLOCKS.register(name, block);
+        registerBlockItem(name, blockRegistryObject);
+        return blockRegistryObject;
+    }
 
-    /*
-    public static ExtendedProperties grainPileProperties()
-    {
-        return ExtendedProperties.of(BlockBehaviour.Properties.of(Material.GRASS).strength(0.3F).sound(SoundType.GRASS).noOcclusion()
-                .isValidSpawn((a, b, c, d) -> false)
-                .isRedstoneConductor((a, b, c) -> false)
-                .isSuffocating((a, b, c) -> false)
-                .destroyTime(3.5f)
-                .isViewBlocking((a, b, c) -> false)).blockEntity(() -> HomesteadBlockEntities.GRAIN_PILE.get());
-    }*/
+    private static <T extends Block> void registerBlockItem(String name, RegistryObject<T> block) {
+        HomesteadItems.ITEMS.register(name, () -> new BlockItem(block.get(),
+                new Item.Properties()));
+    }
+
+    public static void register(IEventBus eventBus) {
+        BLOCKS.register(eventBus);
+    }
 
 }

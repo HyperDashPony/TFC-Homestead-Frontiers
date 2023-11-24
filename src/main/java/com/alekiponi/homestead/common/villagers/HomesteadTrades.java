@@ -43,6 +43,7 @@ public class HomesteadTrades {
     }
 
     static {
+        /*
         register(HomesteadVillagerProfessions.DIGGER.get(), 10, HomesteadTrades::getRockOffer);
         register(HomesteadVillagerProfessions.DIGGER.get(), 10, HomesteadTrades::getCobbleOffer);
         register(HomesteadVillagerProfessions.DIGGER.get(), 10, HomesteadTrades::getGravelOffer);
@@ -55,6 +56,8 @@ public class HomesteadTrades {
         register(HomesteadVillagerProfessions.BUILDER.get(), 4, HomesteadTrades::getSandOffer);
         register(HomesteadVillagerProfessions.BUILDER.get(), 4, HomesteadTrades::getSoilOffer);
         register(HomesteadVillagerProfessions.MINER.get(), 4, HomesteadTrades::getOreOffer);
+
+         */
     }
 
 
@@ -233,7 +236,6 @@ public class HomesteadTrades {
                     Ore.MAGNETITE,
                     Ore.LIMONITE,
                     Ore.BORAX,
-                    Ore.KAOLINITE,
                     Ore.CINNABAR,
                     Ore.GRAPHITE,
                     Ore.GARNIERITE,

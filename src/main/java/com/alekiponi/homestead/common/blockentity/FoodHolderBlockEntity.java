@@ -71,7 +71,7 @@ public class FoodHolderBlockEntity extends BlockEntity {
 
     public boolean fits(ItemStack stack){
         return stack.getCapability(FoodCapability.CAPABILITY, null).isPresent() &&
-            (this.stack.isEmpty() || (this.stack.getItem() == stack.getItem() && ItemStack.isSame(this.stack, stack)));
+            (this.stack.isEmpty() || (this.stack.getItem() == stack.getItem() && ItemStack.isSameItem(this.stack, stack)));
     }
 
     public void handleGivenStack(ItemStack stack) {
@@ -115,19 +115,6 @@ public class FoodHolderBlockEntity extends BlockEntity {
         this.update();
         return true;
     }
-
-//    private int timeLeft = 200;
-//    public void update() {
-//		if(timeLeft <= 0) {
-//			timeLeft = 200
-//			updatePreservation()
-//		}
-//		else {
-//			timeLeft -= 1
-//		}
-//    }
-//
-//
 
     public void updatePreservation() {}
 
@@ -200,7 +187,6 @@ public class FoodHolderBlockEntity extends BlockEntity {
 //        stack = ItemStack.of(tag.getCompound("itemStack"));
     }
 
-    @Override
     public @NotNull CompoundTag getTileData() {
         return this.serializeNBT();
     }

@@ -8,11 +8,9 @@ import net.dries007.tfc.common.fluids.*;
 import net.dries007.tfc.common.items.TFCItems;
 import net.dries007.tfc.util.Helpers;
 import net.dries007.tfc.util.registry.RegistrationHelpers;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.level.material.FlowingFluid;
 import net.minecraft.world.level.material.Fluid;
-import net.minecraftforge.fluids.FluidAttributes;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.ForgeFlowingFluid;
 import net.minecraftforge.fluids.capability.IFluidHandlerItem;
@@ -26,9 +24,10 @@ import java.util.function.Function;
 import static net.dries007.tfc.common.fluids.TFCFluids.*;
 
 public class HomesteadFluid {
-    public static final DeferredRegister<Fluid> FLUIDS = DeferredRegister.create(ForgeRegistries.FLUIDS, Homestead.MOD_ID);;
-
-    public static final BiMap<AgedAlcohol, FlowingFluidRegistryObject<MixingFluid>> AGED_ALCOHOL;
+    public static final DeferredRegister<Fluid> FLUIDS = DeferredRegister.create(ForgeRegistries.FLUIDS, Homestead.MOD_ID);
+    //TODO fix 1.20
+    /*
+    public static final BiMap<AgedAlcohol, FlowingFluidReg<MixingFluid>> AGED_ALCOHOL;
 
     static {
         var oneWayMap = Helpers.mapOfKeys(AgedAlcohol.class, (fluid) -> register(fluid.getId(), "flowing_" + fluid.getId(), (properties) -> {
@@ -53,4 +52,6 @@ public class HomesteadFluid {
         }
         return Optional.empty();
     }
+
+     */
 }

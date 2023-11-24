@@ -8,17 +8,17 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
-import net.minecraftforge.event.entity.EntityJoinWorldEvent;
+import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public class HomesteadEntities {
-    public static DeferredRegister<EntityType<?>> ENTITIES =
-        DeferredRegister.create(ForgeRegistries.ENTITIES, Homestead.MOD_ID);
+    public static DeferredRegister<EntityType<?>> ENTITY_TYPES =
+        DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, Homestead.MOD_ID);
 
     public static RegistryObject<EntityType<HomesteadVillager>> VILLAGER =
-        ENTITIES.register(
+        ENTITY_TYPES.register(
             "villager",
                 () -> EntityType.Builder.of(HomesteadVillager::new, MobCategory.CREATURE)
                     .sized(1, 2)
@@ -30,13 +30,12 @@ public class HomesteadEntities {
         event.put(VILLAGER.get(), HomesteadVillager.createAttributes().build());
     }
 
-    public static void resetTradesOnSpawn(EntityJoinWorldEvent event) {
+    public static void resetTradesOnSpawn(EntityJoinLevelEvent event) {
+        //TODO fix 1.20
+        /*
         if(!event.loadedFromDisk() && event.getEntity() instanceof HomesteadVillager villager) {
             villager.randomizeData();
-        }
+        }*/
     }
-
-    public static final TagKey<Item> RAW_HIDES =
-            TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation("tfc", "raw_hides"));
 
 }
