@@ -9,6 +9,7 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -28,6 +29,10 @@ public class HomesteadEntities {
 
     public static void registerAttributes(EntityAttributeCreationEvent event) {
         event.put(VILLAGER.get(), HomesteadVillager.createAttributes().build());
+    }
+
+    public static void register(IEventBus eventBus) {
+        ENTITY_TYPES.register(eventBus);
     }
 
     public static void resetTradesOnSpawn(EntityJoinLevelEvent event) {

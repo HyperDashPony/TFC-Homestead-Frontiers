@@ -1,7 +1,7 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "tfchomestead:item/refined_walking_cane"
+    "layer0": "homestead:item/refined_walking_cane"
   },
   "display": {
     "gui": {
