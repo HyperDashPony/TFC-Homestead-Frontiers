@@ -1,4 +1,4 @@
-package com.lumintorious.tfchomestead.mixin;
+package com.alekiponi.homestead.mixin;
 
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 import org.spongepowered.asm.mixin.Mixin;

@@ -1,6 +1,6 @@
 {
   "__comment__": "This file was automatically created by mcresources",
-  "feature": "tfchomestead:villager_homestead",
+  "feature": "homestead:villager_homestead",
   "placement": [
     {
       "type": "minecraft:rarity_filter",
