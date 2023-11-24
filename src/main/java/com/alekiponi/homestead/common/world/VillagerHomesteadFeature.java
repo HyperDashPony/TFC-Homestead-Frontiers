@@ -73,7 +73,6 @@ public class VillagerHomesteadFeature extends Feature<VillagerHomesteadConfig> {
                 level.setBlock(posAt, stateReplace, 2);
             }
         }
-//            TreeHelpers.placeTemplate(structure, settings, level, mutablePos.subtract(TreeHelpers.transformCenter(structure.getSize(), settings)));
             return true;
     }
 }
