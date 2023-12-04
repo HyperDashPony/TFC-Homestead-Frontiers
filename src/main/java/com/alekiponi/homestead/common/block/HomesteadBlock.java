@@ -28,10 +28,10 @@ public abstract class HomesteadBlock extends DeviceBlock {
 
     @Override
     @SuppressWarnings("deprecation")
-    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-        BlockEntity entity = pLevel.getBlockEntity(pPos);
+    public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+        BlockEntity entity = level.getBlockEntity(pos);
         if(entity instanceof FoodHolderBlockEntity foodHolder) {
-            boolean result = foodHolder.onRightClick(pPlayer);
+            boolean result = foodHolder.onRightClick(player);
             return result ? InteractionResult.SUCCESS : InteractionResult.FAIL;
         }
         return InteractionResult.FAIL;
