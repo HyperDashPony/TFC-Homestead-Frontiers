@@ -30,8 +30,9 @@ public final class StoredTrait {
         });
     }
 
-    private static FoodTrait register(float decayModifier, String name) {
-        return FoodTrait.register(new ResourceLocation(Homestead.MOD_ID, name), new FoodTrait(decayModifier, "homestead.food_trait." + name));
+    private static FoodTrait register(float decayModifier, String name)
+    {
+        return FoodTrait.register(Homestead.identifier(name), new FoodTrait(decayModifier, "homestead.food_trait." + name));
     }
 
     // the classloading causes all these food traits to get registered automagically
